@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  frontend:
+    build: ./frontend  # Points to frontend/Dockerfile
+    ports:
+      - "80:80"       # Exposes Nginx on port 80
+    depends_on:
+      - backend       # Ensures backend starts first
+
+  backend:
+    build: ./backend  # Points to backend/Dockerfile
+    ports:
+      - "8000:8000"   # Exposes FastAPI on port 8000
